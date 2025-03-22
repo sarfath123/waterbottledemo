@@ -3,568 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLOW | Premium Water Bottles</title>
+    <title>FLOW Brand Display</title>
     <style>
-        :root {
-            --primary: #004d66;
-            --secondary: #e6f7ff;
-            --accent: #00a3cc;
-            --text: #333333;
-            --background: #ffffff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-        
         body {
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Navigation */
-        header {
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .cart-icon {
-            font-size: 20px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            background-color: var(--secondary);
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-        
-        .hero-text {
-            flex: 1;
-        }
-        
-        .hero-text h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero-text p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            max-width: 500px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        
-        .cta-button:hover {
-            background-color: var(--accent);
-        }
-        
-        .hero-image {
-            flex: 1;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             display: flex;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
         }
         
-        .hero-image img {
-            max-height: 500px;
-            object-fit: contain;
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 80%;
+            max-width: 800px;
         }
         
-        /* Featured Products */
-        .featured {
-            padding: 100px 0;
+        .option {
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
+        h3 {
+            margin-top: 0;
+            color: #666;
+            font-weight: 400;
         }
         
-        .section-header h2 {
-            font-size: 36px;
+        /* Option 1: Minimal Wordmark */
+        .logo-1 {
+            font-size: 48px;
             font-weight: 700;
+            letter-spacing: 12px;
+            color: #004d66;
+        }
+        
+        /* Option 2: With Water Element */
+        .logo-2-container {
             position: relative;
             display: inline-block;
-            padding-bottom: 15px;
         }
         
-        .section-header h2::after {
+        .logo-2 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: #004d66;
+        }
+        
+        .logo-2::after {
             content: '';
             position: absolute;
+            height: 8px;
+            width: 100%;
+            background: #00a3cc;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent);
-        }
-        
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .product {
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .product:hover {
-            transform: translateY(-10px);
-        }
-        
-        .product img {
-            max-width: 100%;
-            height: 300px;
-            object-fit: contain;
-            margin-bottom: 20px;
-        }
-        
-        .product h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .product p.price {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background-color: var(--secondary);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-        
-        .about-image {
-            flex: 1;
-        }
-        
-        .about-image img {
-            max-width: 100%;
+            left: 0;
             border-radius: 4px;
         }
         
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        
-        .about-text p {
-            margin-bottom: 15px;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature {
-            text-align: center;
-            padding: 30px;
-        }
-        
-        .feature-icon {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .feature h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-        
-        /* Newsletter */
-        .newsletter {
-            padding: 100px 0;
-            background-color: var(--secondary);
-            text-align: center;
-        }
-        
-        .newsletter h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        
-        .newsletter p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        
-        .newsletter-form {
+        /* Option 3: Modern and Distinctive */
+        .logo-3 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #004d66;
             display: flex;
-            max-width: 500px;
-            margin: 0 auto;
+            align-items: center;
         }
         
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            font-size: 16px;
-        }
-        
-        .newsletter-form button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0 25px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        
-        .newsletter-form button:hover {
-            background-color: var(--accent);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: white;
-            padding: 60px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
+        .logo-3 .letter {
             position: relative;
-            padding-bottom: 10px;
         }
         
-        .footer-column h3::after {
+        .logo-3 .o {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            border: 4px solid #004d66;
+            border-radius: 50%;
+            margin: 0 4px;
+        }
+        
+        .logo-3 .o::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 30px;
+            width: 32px;
+            height: 32px;
+            background-color: #e6f7ff;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        /* Option 4: Clean and Elegant */
+        .logo-4 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 10px;
+            color: #004d66;
+            position: relative;
+            display: inline-block;
+            padding: 0 8px;
+        }
+        
+        .logo-4::before, .logo-4::after {
+            content: '';
+            position: absolute;
             height: 2px;
-            background-color: var(--accent);
+            width: 40px;
+            background: #00a3cc;
+            top: 50%;
         }
         
-        .footer-column ul {
-            list-style: none;
+        .logo-4::before {
+            left: -45px;
         }
         
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #e6e6e6;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
-            color: white;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 20px;
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content, .about-content {
-                flex-direction: column;
-            }
-            
-            .hero-text {
-                text-align: center;
-                order: 2;
-            }
-            
-            .hero-image {
-                order: 1;
-                margin-bottom: 30px;
-            }
-            
-            .about-image {
-                margin-bottom: 30px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
+        .logo-4::after {
+            right: -45px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">FLOW</a>
-                <div class="nav-links">
-                    <a href="#products">Products</a>
-                    <a href="#about">About</a>
-                    <a href="#features">Features</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <a href="#cart" class="cart-icon">🛒</a>
-            </nav>
+    <div class="brand-container">
+        <div class="option">
+            <h3>Option 1: Minimal Wordmark</h3>
+            <div class="logo-1">FLOW</div>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Stay Hydrated, Stay Stylish</h1>
-                    <p>Premium minimalist water bottles designed for modern life. Sustainable, sleek, and functional.</p>
-                    <a href="#products" class="cta-button">Shop Now</a>
-                </div>
-                <div class="hero-image">
-                    <img src="/api/placeholder/400/600" alt="Minimalist water bottle">
-                </div>
+        
+        <div class="option">
+            <h3>Option 2: With Water Element</h3>
+            <div class="logo-2-container">
+                <div class="logo-2">FLOW</div>
             </div>
         </div>
-    </section>
-
-    <!-- Featured Products -->
-    <section class="featured" id="products">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Collection</h2>
-            </div>
-            <div class="products">
-                <div class="product">
-                    <img src="/api/placeholder/300/400" alt="Classic Bottle">
-                    <h3>Classic Minimalist</h3>
-                    <p class="price">$35</p>
-                    <a href="#" class="cta-button">Add to Cart</a>
-                </div>
-                <div class="product">
-                    <img src="/api/placeholder/300/400" alt="Sport Bottle">
-                    <h3>Sport Edition</h3>
-                    <p class="price">$42</p>
-                    <a href="#" class="cta-button">Add to Cart</a>
-                </div>
-                <div class="product">
-                    <img src="/api/placeholder/300/400" alt="Premium Bottle">
-                    <h3>Premium Insulated</h3>
-                    <p class="price">$48</p>
-                    <a href="#" class="cta-button">Add to Cart</a>
-                </div>
+        
+        <div class="option">
+            <h3>Option 3: Modern and Distinctive</h3>
+            <div class="logo-3">
+                <span class="letter">F</span>
+                <span class="letter">L</span>
+                <span class="letter o"></span>
+                <span class="letter">W</span>
             </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="/api/placeholder/500/400" alt="About our company">
-                </div>
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p>Founded in 2022, FLOW began with a simple mission: to create water bottles that combine minimalist design with maximum functionality.</p>
-                    <p>We believe that staying hydrated shouldn't mean compromising on style. Every bottle is thoughtfully designed to fit seamlessly into your daily life, whether you're at the office, the gym, or on an adventure.</p>
-                    <p>Our commitment to sustainability drives everything we do. Each FLOW bottle is made from premium materials that are built to last, reducing the need for single-use plastics.</p>
-                </div>
-            </div>
+        
+        <div class="option">
+            <h3>Option 4: Clean and Elegant</h3>
+            <div class="logo-4">FLOW</div>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose FLOW</h2>
-            </div>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">♻️</div>
-                    <h3>Sustainable</h3>
-                    <p>Made from eco-friendly materials that reduce environmental impact.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🌡️</div>
-                    <h3>Temperature Control</h3>
-                    <p>Advanced insulation keeps drinks cold for 24 hours or hot for 12 hours.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💧</div>
-                    <h3>Leak-Proof</h3>
-                    <p>Innovative cap design ensures no spills, no matter what.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Minimalist Design</h3>
-                    <p>Clean, modern aesthetics that complement any lifestyle.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Stay in the FLOW</h2>
-            <p>Subscribe to our newsletter for exclusive offers, new product releases, and hydration tips.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Your email address">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="#">All Products</a></li>
-                        <li><a href="#">New Arrivals</a></li>
-                        <li><a href="#">Bestsellers</a></li>
-                        <li><a href="#">Gift Cards</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Help</h3>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Care Instructions</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>About</h3>
-                    <ul>
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Sustainability</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <div class="social-links">
-                        <a href="#">📱</a>
-                        <a href="#">📷</a>
-                        <a href="#">🐦</a>
-                        <a href="#">👍</a>
-                    </div>
-                    <p style="margin-top: 20px;">hello@flowbottles.com</p>
-                    <p>+1 (555) 123-4567</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>© 2025 FLOW. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    </div>
 </body>
 </html>
